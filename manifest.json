@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Lofi",
+  "version": "1.0",
+  "description": "Cutting high frequencies from playing audio",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "contextMenus"
+  ],
+  "icons": {
+    "16": "images/hello.png",
+    "48": "images/hello.png",
+    "128": "images/hello.png"
+  },
+  "action": {
+    "default_icon": "images/hello.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "js/background.js"
+  }
+}
+

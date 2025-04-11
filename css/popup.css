@@ -1,0 +1,95 @@
+/* Flexbox を使用して、要素を中央に配置 */
+body {
+  background: linear-gradient(to bottom, #ff8e04de, #ff4400e3); 
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* 画面左寄せに修正 */
+  height: 100vh;
+  margin: 0;
+  max-width: 300px;
+  min-width: 300px;
+  max-height: 190px;
+  min-height: 190px;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../images/noise.jpg'); /* ノイズのテクスチャ画像へのパス */
+  background-size: 250px;
+  opacity: 0.3; /* ノイズの透明度を調整 */
+}
+
+/* Flexbox を使用して、要素を中央に配置 */
+.cd-container {
+  display: flex;
+  align-items: center;
+  padding-left: 17px;
+}
+
+/* 円盤のスタイル */
+.cd {
+  width: 130px; /* 円盤の直径 */
+  height: 130px;
+  background-color: #000000; /* 円盤の色 */
+  border-radius: 50%; /* 円形に切り取る */
+  position: relative; /* 相対位置指定 */
+  animation: rotateCD 8s linear infinite; /* CD回転のアニメーション */
+  animation-play-state: paused;
+}
+
+.cd::before {
+  content: '';
+  position: absolute;
+  width: 18%;
+  height: 18%;
+  background-color: #000000;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 中心に配置 */
+}
+
+/* 画像のスタイル */
+img {
+  object-fit: cover; /* 画像を縮尺変更せずに切り取る */
+  width: 100%;
+  height: 100%;
+  border-radius: 50%; /* 画像も円形に切り取る */
+}
+
+/* ボタンの配置スタイル */
+.button-container {
+  position: absolute; /* 絶対位置指定 */
+  top: 0;
+  left: 70%; /* 円盤の右端にボタンを配置 */
+  transform: translateX(-50%); /* 中央揃え */
+  text-align: center;
+  padding-left: 20px; /* ボタンと円盤の間隔 */
+  padding-top: 10px;
+}
+
+/* ボタンのスタイル */
+button {
+  padding: 10px 20px;
+  background-color: #007bff; /* ボタンの背景色 */
+  color: #fff; /* ボタンの文字色 */
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  margin: 3px;
+}
+
+/* CD回転のアニメーション定義 */
+@keyframes rotateCD {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
