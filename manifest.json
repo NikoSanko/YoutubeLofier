@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Lofi",
+  "name": "Youtube Lofier",
   "version": "1.0",
-  "description": "Cutting high frequencies from playing audio",
+  "description": "Make Youtube Music Lofi",
   "permissions": [
     "activeTab",
     "storage",
