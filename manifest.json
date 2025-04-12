@@ -9,12 +9,12 @@
     "contextMenus"
   ],
   "icons": {
-    "16": "images/hello.png",
-    "48": "images/hello.png",
-    "128": "images/hello.png"
+    "16": "images/icon.png",
+    "48": "images/icon.png",
+    "128": "images/icon.png"
   },
   "action": {
-    "default_icon": "images/hello.png",
+    "default_icon": "images/icon.png",
     "default_popup": "popup.html"
   },
   "content_scripts": [

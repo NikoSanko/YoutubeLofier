@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var thumbnailUrl = "https://i.ytimg.com/vi/" + videoId + "/mqdefault.jpg";
       $('#cdImage').attr('src', thumbnailUrl);
     } else {
-      $('#cdImage').attr('src', "images/lasa.jpg");
+      $('#cdImage').attr('src', "images/cdFallbackImage.png");
     }
   });
 });
