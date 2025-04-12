@@ -4,9 +4,7 @@
   "version": "1.0",
   "description": "Make Youtube Music Lofi",
   "permissions": [
-    "activeTab",
-    "storage",
-    "contextMenus"
+    "activeTab"
   ],
   "icons": {
     "16": "images/icon.png",
