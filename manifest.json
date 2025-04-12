@@ -15,12 +15,12 @@
   },
   "action": {
     "default_icon": "images/icon.png",
-    "default_popup": "popup.html"
+    "default_popup": "popup/popup.html"
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["js/content.js"]
+      "js": ["content/content.js"]
     }
   ]
 }
