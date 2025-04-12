@@ -20,12 +20,12 @@ const EQ_TYPE = {
 
 const EFFECT_PRESETS = {
   [AUDIO_MODES.VINYL]: [
-    { type: EFFECT_TYPE.SATURATOR, params: { distortionAmount: 40, sampleRate: null, mixRatio: 0.1 } },
-    { type: EFFECT_TYPE.EQ, params: { type: EQ_TYPE.HIGHPASS, frequency: 100, q: 12, gain: null, mixRatio: 1 } },
-    { type: EFFECT_TYPE.EQ, params: { type: EQ_TYPE.LOWPASS, frequency: 18000, q: 12, gain: null, mixRatio: 1 } },
-    { type: EFFECT_TYPE.EQ, params: { type: EQ_TYPE.LOWSHELF, frequency: 500, q: null, gain: -5, mixRatio: 1 } },
+    { type: EFFECT_TYPE.SATURATOR, params: { distortionAmount: 10, sampleRate: null, mixRatio: 0.1 } },
+    { type: EFFECT_TYPE.EQ, params: { type: EQ_TYPE.HIGHPASS, frequency: 20, q: 24, gain: null, mixRatio: 1 } },
+    { type: EFFECT_TYPE.EQ, params: { type: EQ_TYPE.LOWPASS, frequency: 18000, q: 24, gain: null, mixRatio: 1 } },
     { type: EFFECT_TYPE.SATURATOR, params: { distortionAmount: 10, sampleRate: 0.5, mixRatio: 0.1 } },
-    { type: EFFECT_TYPE.COMPRESSOR, params: { threshold: -3, knee: 10, ratio: 5, attack: 0, release: 0, mixRatio: 1 }}
+    { type: EFFECT_TYPE.COMPRESSOR, params: { threshold: -1, knee: 40, ratio: 1.5, attack: 0.1, release: 0.5, mixRatio: 1 }},
+    { type: EFFECT_TYPE.GAIN, params: { gainAmount: 1.3}}
   ],
   [AUDIO_MODES.RADIO]: [
     { type: EFFECT_TYPE.EQ, params: { type: EQ_TYPE.HIGHPASS, frequency: 150, q: 12, gain: null, mixRatio: 0.5 } },
@@ -33,15 +33,13 @@ const EFFECT_PRESETS = {
     { type: EFFECT_TYPE.EQ, params: { type: EQ_TYPE.LOWSHELF, frequency: 500, q: null, gain: -3, mixRatio: 1 } },
     { type: EFFECT_TYPE.SATURATOR, params: { distortionAmount: 13, sampleRate: 0.25, mixRatio: 0.4 } },
     { type: EFFECT_TYPE.COMPRESSOR, params: { threshold: -3, knee: 10, ratio: 5, attack: 0, release: 0, mixRatio: 1 }},
-    { type: EFFECT_TYPE.GAIN, params: { gainAmount: 1.5}}
+    { type: EFFECT_TYPE.GAIN, params: { gainAmount: 1.7}}
   ],
   [AUDIO_MODES.GUNK]: [
-    { type: EFFECT_TYPE.SATURATOR, params: { distortionAmount: 20, sampleRate: null, mixRatio: 0.2 } },
-    { type: EFFECT_TYPE.EQ, params: { type: EQ_TYPE.HIGHPASS, frequency: 100, q: 12, gain: null, mixRatio: 1 } },
-    { type: EFFECT_TYPE.EQ, params: { type: EQ_TYPE.LOWPASS, frequency: 18000, q: 36, gain: null, mixRatio: 1 } },
-    { type: EFFECT_TYPE.EQ, params: { type: EQ_TYPE.HIGHSHELF, frequency: 14000, q: null, gain: -12, mixRatio: 1 } },
-    { type: EFFECT_TYPE.EQ, params: { type: EQ_TYPE.LOWSHELF, frequency: 1000, q: null, gain: -8, mixRatio: 1 } },
-    { type: EFFECT_TYPE.COMPRESSOR, params: { threshold: -3, knee: 10, ratio: 10, attack: 0, release: 0, mixRatio: 1 }}
+    { type: EFFECT_TYPE.SATURATOR, params: { distortionAmount: 40, sampleRate: null, mixRatio: 0.2 } },
+    { type: EFFECT_TYPE.SATURATOR, params: { distortionAmount: 30, sampleRate: null, mixRatio: 0.1 } },
+    { type: EFFECT_TYPE.COMPRESSOR, params: { threshold: -6, knee: 10, ratio: 10, attack: 0, release: 0, mixRatio: 1 }},
+    { type: EFFECT_TYPE.GAIN, params: { gainAmount: 1.5}}
   ]
 };
 
