@@ -1,7 +1,7 @@
 const AUDIO_MODES = {
   VINYL: 0,
   RADIO: 1,
-  GUNK: 2
+  JUNK: 2
 };
 
 const EFFECT_TYPE = {
@@ -35,7 +35,7 @@ const EFFECT_PRESETS = {
     { type: EFFECT_TYPE.COMPRESSOR, params: { threshold: -3, knee: 10, ratio: 5, attack: 0, release: 0, mixRatio: 1 }},
     { type: EFFECT_TYPE.GAIN, params: { gainAmount: 1.7}}
   ],
-  [AUDIO_MODES.GUNK]: [
+  [AUDIO_MODES.JUNK]: [
     { type: EFFECT_TYPE.SATURATOR, params: { distortionAmount: 40, sampleRate: null, mixRatio: 0.2 } },
     { type: EFFECT_TYPE.SATURATOR, params: { distortionAmount: 30, sampleRate: null, mixRatio: 0.1 } },
     { type: EFFECT_TYPE.COMPRESSOR, params: { threshold: -6, knee: 10, ratio: 10, attack: 0, release: 0, mixRatio: 1 }},
@@ -198,8 +198,8 @@ const messageHandlers = {
     sendResponse({ mode: audioProcessor.mode });
   },
 
-  gunkButtonClicked: (request, sender, sendResponse) => {
-    audioProcessor.mode = AUDIO_MODES.GUNK;
+  junkButtonClicked: (request, sender, sendResponse) => {
+    audioProcessor.mode = AUDIO_MODES.JUNK;
 
     if (audioProcessor.on) {
       audioProcessor.clearEffectors();

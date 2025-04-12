@@ -1,7 +1,7 @@
 const AUDIO_MODES = {
   VINYL: 0,
   RADIO: 1,
-  GUNK: 2
+  JUNK: 2
 };
 
 const BUTTON_COLOR = {
@@ -42,7 +42,7 @@ $(document).ready(function() {
   $('#power-button').on('click', pushPowerButton);
   $('#vinyl-button').on('click', pushVinylButton);
   $('#radio-button').on('click', switchModeToRadio);
-  $('#gunk-button').on('click', switchModeToGunk);
+  $('#junk-button').on('click', switchModeToJunk);
 });
 
 function pushPowerButton() {
@@ -90,9 +90,9 @@ function switchModeToRadio() {
   });
 }
 
-function switchModeToGunk() {
+function switchModeToJunk() {
   chrome.tabs.query( {active: true, currentWindow: true}, function(tabs){
-    chrome.tabs.sendMessage(tabs[0].id, {message: 'gunkButtonClicked'}, function(item) {
+    chrome.tabs.sendMessage(tabs[0].id, {message: 'junkButtonClicked'}, function(item) {
       if(!item) {
         console.log('Failed to get the response of sendMessage');
         return;
@@ -106,7 +106,7 @@ function switchModeToGunk() {
 function switchPressedModeButton(mode) {
   let vinylButtonColor = BUTTON_COLOR.OFF;
   let radioButtonColor = BUTTON_COLOR.OFF;
-  let gunkButtonColor = BUTTON_COLOR.OFF;
+  let junkButtonColor = BUTTON_COLOR.OFF;
 
   switch (mode) {
     case AUDIO_MODES.VINYL: 
@@ -115,12 +115,12 @@ function switchPressedModeButton(mode) {
     case AUDIO_MODES.RADIO:
       radioButtonColor = BUTTON_COLOR.ON;
       break;
-    case AUDIO_MODES.GUNK:
-      gunkButtonColor = BUTTON_COLOR.ON;
+    case AUDIO_MODES.JUNK:
+      junkButtonColor = BUTTON_COLOR.ON;
       break;
   }
 
   $('#vinyl-button').css("background-color", vinylButtonColor);
   $('#radio-button').css("background-color", radioButtonColor);
-  $('#gunk-button').css("background-color", gunkButtonColor);
+  $('#junk-button').css("background-color", junkButtonColor);
 }
