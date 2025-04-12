@@ -7,7 +7,8 @@ const AUDIO_MODES = {
 const EFFECT_TYPE = {
   EQ: "eq",
   COMPRESSOR: "compressor",
-  SATURATOR: "saturator"
+  SATURATOR: "saturator",
+  GAIN: "gain"
 }
 
 const EQ_TYPE = {
@@ -31,7 +32,8 @@ const EFFECT_PRESETS = {
     { type: EFFECT_TYPE.EQ, params: { type: EQ_TYPE.LOWPASS, frequency: 6700, q: 8, gain: null, mixRatio: 0.8 } },
     { type: EFFECT_TYPE.EQ, params: { type: EQ_TYPE.LOWSHELF, frequency: 500, q: null, gain: -3, mixRatio: 1 } },
     { type: EFFECT_TYPE.SATURATOR, params: { distortionAmount: 13, sampleRate: 0.25, mixRatio: 0.4 } },
-    { type: EFFECT_TYPE.COMPRESSOR, params: { threshold: -3, knee: 10, ratio: 5, attack: 0, release: 0, mixRatio: 1 }}
+    { type: EFFECT_TYPE.COMPRESSOR, params: { threshold: -3, knee: 10, ratio: 5, attack: 0, release: 0, mixRatio: 1 }},
+    { type: EFFECT_TYPE.GAIN, params: { gainAmount: 1.5}}
   ],
   [AUDIO_MODES.GUNK]: [
     { type: EFFECT_TYPE.SATURATOR, params: { distortionAmount: 20, sampleRate: null, mixRatio: 0.2 } },
@@ -81,10 +83,12 @@ class AudioProcessor {
     preset.forEach(effect => {
       if (effect.type === EFFECT_TYPE.EQ) {
         this.insertEQ(effect.params);
-      } else if (effect.type == EFFECT_TYPE.COMPRESSOR) {
+      } else if (effect.type === EFFECT_TYPE.COMPRESSOR) {
         this.insertCompressor(effect.params);
       } else if (effect.type === EFFECT_TYPE.SATURATOR) {
         this.insertSaturator(effect.params);
+      } else if (effect.type === EFFECT_TYPE.GAIN) {
+        this.insertGain(effect.params);
       }
     });
   }
@@ -119,6 +123,14 @@ class AudioProcessor {
 
     this.effectors.push(saturator);
     this.mixRatios.push(mixRatio);
+  }
+
+  insertGain({ gainAmount }) {
+    const gainNode = this.context.createGain();
+    gainNode.gain.value = gainAmount;
+
+    this.effectors.push(gainNode);
+    this.mixRatios.push(1);
   }
 
   connectAudioNodes() {
