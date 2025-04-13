@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 $(document).ready(function() {
   $('#power-button').on('click', pushPowerButton);
-  $('#vinyl-button').on('click', pushVinylButton);
+  $('#vinyl-button').on('click', switchModeToVinyl);
   $('#radio-button').on('click', switchModeToRadio);
   $('#junk-button').on('click', switchModeToJunk);
 });
@@ -64,7 +64,7 @@ function rotateCd(isOn) {
   cd.css('animation-play-state', isOn ? 'running' : 'paused');
 }
 
-function pushVinylButton() {
+function switchModeToVinyl() {
   chrome.tabs.query( {active: true, currentWindow: true}, function(tabs){
     chrome.tabs.sendMessage(tabs[0].id, {message: 'vinylButtonClicked'}, function(item) {
       if(!item) {
